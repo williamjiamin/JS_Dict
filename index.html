@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lexueoude.com 's tutorial of how to build a dictionary using JavaScript</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="header">
+    <h1>乐学偶得-英汉双语词典</h1>
+</div>
+
+<div class="wrapper">
+    <div class="words">
+        <input type="text" id="search" placeholder="请输入您想搜索的词汇...">
+        <button onclick="search()">点我搜索</button>
+        <ul id="word_list"></ul>
+    </div>
+
+    <div class="word">
+        <h2 id="word_text">单词释义</h2>
+        <p id="definition">单词释义单词释义单词释义释义</p>
+
+        <hr>
+        <h3>相关词汇:</h3>
+        <li id="related"></li>
+
+
+    </div>
+
+</div>
+</body>
+</html>
+
+
+<script type="text/javascript">
+    var dictionary = [
+        {
+            word: "lexueoude.com",
+            def: "This is the website of lexueoude Inc.这是乐学偶得的官网。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "William",
+            def: "The teacher of lexueoude Inc.乐学偶得的讲师Williamjiamin。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "lexueoude",
+            def: "This is name of lexueoude Inc.这是乐学偶得的名字。",
+            rel: ["lexueoude", "LoveShareFinTech", "lexueoude.com"]
+        },
+        {
+            word: "LoveShareFinTech",
+            def: "This is the gongzhonghao of lexueoude Inc.这是乐学偶得的公众号。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "apple",
+            def: "This is fruit which you can eat.这是一种能吃的水果。",
+            rel: ["banana"]
+        },
+        {
+            word: "banana",
+            def: "This is fruit which you can eat.这是一种能吃的水果。",
+            rel: ["apple"]
+        },
+        {
+            word: "lexueoude.com",
+            def: "This is the website of lexueoude Inc.这是乐学偶得的官网。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "William",
+            def: "The teacher of lexueoude Inc.乐学偶得的讲师Williamjiamin。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "lexueoude",
+            def: "This is name of lexueoude Inc.这是乐学偶得的名字。",
+            rel: ["lexueoude", "LoveShareFinTech", "lexueoude.com"]
+        },
+        {
+            word: "LoveShareFinTech",
+            def: "This is the gongzhonghao of lexueoude Inc.这是乐学偶得的公众号。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "apple",
+            def: "This is fruit which you can eat.这是一种能吃的水果。",
+            rel: ["banana"]
+        },
+        {
+            word: "banana",
+            def: "This is fruit which you can eat.这是一种能吃的水果。",
+            rel: ["apple"]
+        },
+        {
+            word: "lexueoude.com",
+            def: "This is the website of lexueoude Inc.这是乐学偶得的官网。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "William",
+            def: "The teacher of lexueoude Inc.乐学偶得的讲师Williamjiamin。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "lexueoude",
+            def: "This is name of lexueoude Inc.这是乐学偶得的名字。",
+            rel: ["lexueoude", "LoveShareFinTech", "lexueoude.com"]
+        },
+        {
+            word: "LoveShareFinTech",
+            def: "This is the gongzhonghao of lexueoude Inc.这是乐学偶得的公众号。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "apple",
+            def: "This is fruit which you can eat.这是一种能吃的水果。",
+            rel: ["banana"]
+        },
+        {
+            word: "banana",
+            def: "This is fruit which you can eat.这是一种能吃的水果。",
+            rel: ["apple"]
+        },
+        {
+            word: "lexueoude.com",
+            def: "This is the website of lexueoude Inc.这是乐学偶得的官网。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "William",
+            def: "The teacher of lexueoude Inc.乐学偶得的讲师Williamjiamin。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "lexueoude",
+            def: "This is name of lexueoude Inc.这是乐学偶得的名字。",
+            rel: ["lexueoude", "LoveShareFinTech", "lexueoude.com"]
+        },
+        {
+            word: "LoveShareFinTech",
+            def: "This is the gongzhonghao of lexueoude Inc.这是乐学偶得的公众号。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "apple",
+            def: "This is fruit which you can eat.这是一种能吃的水果。",
+            rel: ["banana"]
+        },
+        {
+            word: "banana",
+            def: "This is fruit which you can eat.这是一种能吃的水果。",
+            rel: ["apple"]
+        },
+        {
+            word: "lexueoude.com",
+            def: "This is the website of lexueoude Inc.这是乐学偶得的官网。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "William",
+            def: "The teacher of lexueoude Inc.乐学偶得的讲师Williamjiamin。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "lexueoude",
+            def: "This is name of lexueoude Inc.这是乐学偶得的名字。",
+            rel: ["lexueoude", "LoveShareFinTech", "lexueoude.com"]
+        },
+        {
+            word: "LoveShareFinTech",
+            def: "This is the gongzhonghao of lexueoude Inc.这是乐学偶得的公众号。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "apple",
+            def: "This is fruit which you can eat.这是一种能吃的水果。",
+            rel: ["banana"]
+        },
+        {
+            word: "banana",
+            def: "This is fruit which you can eat.这是一种能吃的水果。",
+            rel: ["apple"]
+        },
+        {
+            word: "lexueoude.com",
+            def: "This is the website of lexueoude Inc.这是乐学偶得的官网。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "William",
+            def: "The teacher of lexueoude Inc.乐学偶得的讲师Williamjiamin。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "lexueoude",
+            def: "This is name of lexueoude Inc.这是乐学偶得的名字。",
+            rel: ["lexueoude", "LoveShareFinTech", "lexueoude.com"]
+        },
+        {
+            word: "LoveShareFinTech",
+            def: "This is the gongzhonghao of lexueoude Inc.这是乐学偶得的公众号。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "apple",
+            def: "This is fruit which you can eat.这是一种能吃的水果。",
+            rel: ["banana"]
+        },
+        {
+            word: "banana",
+            def: "This is fruit which you can eat.这是一种能吃的水果。",
+            rel: ["apple"]
+        },
+        {
+            word: "lexueoude.com",
+            def: "This is the website of lexueoude Inc.这是乐学偶得的官网。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "William",
+            def: "The teacher of lexueoude Inc.乐学偶得的讲师Williamjiamin。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "lexueoude",
+            def: "This is name of lexueoude Inc.这是乐学偶得的名字。",
+            rel: ["lexueoude", "LoveShareFinTech", "lexueoude.com"]
+        },
+        {
+            word: "LoveShareFinTech",
+            def: "This is the gongzhonghao of lexueoude Inc.这是乐学偶得的公众号。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "apple",
+            def: "This is fruit which you can eat.这是一种能吃的水果。",
+            rel: ["banana"]
+        },
+        {
+            word: "banana",
+            def: "This is fruit which you can eat.这是一种能吃的水果。",
+            rel: ["apple"]
+        },
+        {
+            word: "lexueoude.com",
+            def: "This is the website of lexueoude Inc.这是乐学偶得的官网。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "William",
+            def: "The teacher of lexueoude Inc.乐学偶得的讲师Williamjiamin。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "lexueoude",
+            def: "This is name of lexueoude Inc.这是乐学偶得的名字。",
+            rel: ["lexueoude", "LoveShareFinTech", "lexueoude.com"]
+        },
+        {
+            word: "LoveShareFinTech",
+            def: "This is the gongzhonghao of lexueoude Inc.这是乐学偶得的公众号。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "apple",
+            def: "This is fruit which you can eat.这是一种能吃的水果。",
+            rel: ["banana"]
+        },
+        {
+            word: "banana",
+            def: "This is fruit which you can eat.这是一种能吃的水果。",
+            rel: ["apple"]
+        },
+        {
+            word: "lexueoude.com",
+            def: "This is the website of lexueoude Inc.这是乐学偶得的官网。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "William",
+            def: "The teacher of lexueoude Inc.乐学偶得的讲师Williamjiamin。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "lexueoude",
+            def: "This is name of lexueoude Inc.这是乐学偶得的名字。",
+            rel: ["lexueoude", "LoveShareFinTech", "lexueoude.com"]
+        },
+        {
+            word: "LoveShareFinTech",
+            def: "This is the gongzhonghao of lexueoude Inc.这是乐学偶得的公众号。",
+            rel: ["lexueoude", "LoveShareFinTech"]
+        },
+        {
+            word: "apple",
+            def: "This is fruit which you can eat.这是一种能吃的水果。",
+            rel: ["banana"]
+        },
+        {
+            word: "banana",
+            def: "This is fruit which you can eat.这是一种能吃的水果。",
+            rel: ["apple"]
+        },
+
+    ];
+
+    init = function () {
+        for (var i = 0; i < dictionary.length; i++) {
+            document.getElementById('word_list').innerHTML += "<li onclick='show(" + i + ")'>" +
+                dictionary[i].word + "</li>"
+        }
+    }
+
+    init();
+
+    show = function (i){
+        document.getElementById('word_text').innerHTML = dictionary[i].word;
+        document.getElementById('definition').innerHTML = dictionary[i].def;
+
+        var list = "";
+
+        for (var j = 0; j < dictionary[i].rel.length; j++){
+            list += "<li>" + dictionary[i].rel[j] + "</li>";
+            document.getElementById('related').innerHTML = list;
+        }
+    }
+
+    show(2);
+
+    search = function (){
+        query = document.getElementById('search').value;
+
+        if (query === ""){
+
+        }
+        found = -1;
+
+        for (var i =0; i<dictionary.length; i++){
+            if (query === dictionary[i].word){
+                found = i;
+                break;
+            }else{
+                document.getElementById('word_text').innerHTML ="单词没有找到";
+                document.getElementById('definition').innerHTML ="您输入的单词字典中没有收录";
+                document.getElementById('related').innerHTML ="没有找到相关联的词汇";
+            }
+        }
+
+        if (found >= 0){
+            show(found);
+        }
+
+
+    }
+
+
+</script>

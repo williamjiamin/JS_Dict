@@ -1,0 +1,83 @@
+body {
+    font-size: 30px;
+}
+
+.header {
+    width: 80%;
+    margin: 40px auto 0;
+    color: cornflowerblue;
+    background: bisque;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 50px 50px 1px 1px;
+}
+
+.wrapper {
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+.wrapper:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.words{
+    width: 29%;
+    background: darkgrey;
+    padding-top: 5px;
+    float: left;
+}
+
+.word{
+    width: 69%;
+    float: left;
+    padding-left: 10px;
+}
+
+#word_list{
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+li{
+    list-style-type: none;
+    line-height: 1.4em;
+}
+
+li:hover{
+    cursor: pointer;
+    color: cornflowerblue;
+}
+
+
+ul{
+    margin-left: -10px;
+}
+
+h2{
+    color: cornflowerblue;
+}
+
+h3{
+    color: cornflowerblue;
+}
+
+
+#search{
+    margin-left: 30px;
+    width: 70%;
+    padding: 10px;
+    height: 20px
+}
+
+button{
+    height: 50px;
+    background: cornflowerblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
